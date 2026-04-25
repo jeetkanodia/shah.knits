@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Shop handcrafted crochet accessories. Order via Instagram DM or call."
+    />
+    <title>Shop • Shah Knits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <a class="skip-link" href="#products">Skip to products</a>
+
+    <header class="site-header">
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-text">
+            <div class="brand-name">Shah Knits</div>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a
+            class="btn btn-primary"
+            href="https://www.instagram.com/shah.knits"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Follow us on Instagram
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="order-strip" aria-label="Order options">
+        <div class="container order-strip-inner">
+          <div class="order-strip-copy">
+            <h2>Order</h2>
+            <p class="muted">
+              DM with the product name (or screenshot), or call to place your
+              order.
+            </p>
+          </div>
+          <div class="order-strip-actions">
+            <a
+              class="btn btn-primary"
+              href="https://www.instagram.com/shah.knits"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Us
+            </a>
+            <a class="btn btn-call" href="tel:+919160188322">Call: 9160188322</a>
+          </div>
+        </div>
+      </section>
+      <section id="products" class="shop">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Products</h2>
+              <p class="muted">Search by name, type, or price.</p>
+            </div>
+
+            <div class="controls">
+              <label class="search">
+                <span class="sr-only">Search products</span>
+                <input
+                  id="searchInput"
+                  type="search"
+                  placeholder="Search: clip, keychain, pouch…"
+                  autocomplete="off"
+                />
+              </label>
+            </div>
+          </div>
+
+          <div id="stats" class="stats" aria-live="polite"></div>
+          <div id="productGrid" class="grid" aria-label="Product grid"></div>
+        </div>
+      </section>
+
+     
+    </main>
+
+    
+
+    <script defer src="./script.js"></script>
+  </body>
+</html>
+
