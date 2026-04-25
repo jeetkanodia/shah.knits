@@ -159,6 +159,44 @@ function renderProducts(products, query) {
   }
 }
 
+function initMobileNav() {
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-nav-menu]");
+  if (!nav || !toggle || !menu) return;
+
+  function setOpen(open) {
+    nav.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.contains("is-open");
+    setOpen(!isOpen);
+  });
+
+  menu.addEventListener("click", (e) => {
+    const a = e.target?.closest?.("a");
+    if (!a) return;
+    setOpen(false);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!nav.classList.contains("is-open")) return;
+    if (nav.contains(e.target)) return;
+    setOpen(false);
+  });
+
+  globalThis.addEventListener("resize", () => {
+    if (globalThis.matchMedia("(min-width: 641px)").matches) setOpen(false);
+  });
+}
+
 function renderLandingCarousel(products) {
   const track = document.getElementById("landingCarousel");
   if (!track) return;
@@ -245,6 +283,8 @@ function renderLandingCarousel(products) {
 function main() {
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  initMobileNav();
 
   const rawProducts = IMAGE_FILES.map(parseProductFromFilename);
   const products = uniqueBy(rawProducts, (p) => `${p.name}@@${p.price ?? ""}`);
