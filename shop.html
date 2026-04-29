@@ -58,18 +58,20 @@
           <div class="section-head">
             <div>
               <h2>Products</h2>
-              <p class="muted">Search by name, type, or price.</p>
+              <p class="muted">Filter by category.</p>
             </div>
 
             <div class="controls">
-              <label class="search">
-                <span class="sr-only">Search products</span>
-                <input
-                  id="searchInput"
-                  type="search"
-                  placeholder="Search: clip, keychain, pouch…"
-                  autocomplete="off"
-                />
+              <label class="category-filter">
+                <span class="sr-only">Filter by category</span>
+                <select id="categoryFilter">
+                  <option value="">All categories</option>
+                  <option value="Clip">Clips</option>
+                  <option value="Keychain">Keychains</option>
+                  <option value="Pouch">Pouches</option>
+                  <option value="Flowers">Flowers</option>
+                  <option value="Bag">Bags</option>
+                </select>
               </label>
             </div>
           </div>
