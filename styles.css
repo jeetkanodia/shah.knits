@@ -587,17 +587,27 @@ h2 {
   align-items: center;
 }
 
-.search input {
+.category-filter select {
   width: min(420px, 58vw);
   padding: 12px 14px;
+  padding-right: 36px;
   border-radius: 999px;
   border: 1px solid rgba(205, 180, 219, 0.55);
-  background: rgba(255, 255, 255, 0.72);
+  background:
+    rgba(255, 255, 255, 0.72)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231f1820' d='M6 8L1 3h10z'/%3E%3C/svg%3E")
+    no-repeat right 14px center;
+  background-size: 12px;
   outline: none;
   font-weight: 500;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  appearance: none;
+  cursor: pointer;
 }
 
-.search input:focus {
+.category-filter select:focus {
   border-color: rgba(162, 210, 255, 0.95);
   box-shadow: 0 0 0 4px rgba(162, 210, 255, 0.22);
 }
@@ -727,6 +737,31 @@ h2 {
   flex-wrap: wrap;
 }
 
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-right .nav-link {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(205, 180, 219, 0.45);
+  box-shadow: 0 10px 26px rgba(31, 24, 32, 0.06);
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.footer-right .nav-link:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(205, 180, 219, 0.65);
+  box-shadow: 0 12px 30px rgba(31, 24, 32, 0.08);
+}
+
 .brand-mini {
   display: inline-flex;
   gap: 10px;
@@ -784,7 +819,7 @@ h2 {
     align-items: stretch;
     gap: 10px;
   }
-  .search input {
+  .category-filter select {
     width: 100%;
   }
   .card {
