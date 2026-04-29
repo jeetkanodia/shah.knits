@@ -100,7 +100,7 @@ function productCategoryHint(name) {
   if (s.includes("clip") || s.includes("claw") || s.includes("blush")) return "Clip";
   if (s.includes("keychain") || s.includes("charm")) return "Keychain";
   if (s.includes("pouch") || s.includes("airpods")) return "Pouch";
-  if (s.includes("bouquet") || s.includes("gajra") || s.includes("pot") || s.includes("rose") || s.includes("lily"))
+  if (s.includes("bouquet") || s.includes("gajra") || s.includes("pot") || s.includes("rose") || s.includes("lily") || s.includes("bloom")  )
     return "Flowers";
   if (s.includes("bag")) return "Bag";
   return "Handmade";
@@ -119,17 +119,19 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
-function renderProducts(products, query) {
+function renderProducts(products, category) {
   const grid = document.getElementById("productGrid");
   const stats = document.getElementById("stats");
   if (!grid || !stats) return;
 
-  const q = (query || "").trim().toLowerCase();
-  const filtered = q
-    ? products.filter((p) => `${p.name} ${p.price ?? ""}`.toLowerCase().includes(q))
+  const cat = (category || "").trim();
+  const filtered = cat
+    ? products.filter((p) => productCategoryHint(p.name) === cat)
     : products;
 
-  stats.textContent = q ? `Showing ${filtered.length} result(s) for “${query}”.` : `Showing ${filtered.length} product(s).`;
+  stats.textContent = cat
+    ? `Showing ${filtered.length} product(s) in ${cat}.`
+    : `Showing ${filtered.length} product(s).`;
 
   grid.replaceChildren();
   for (const product of filtered) {
@@ -296,11 +298,10 @@ function main() {
   // Landing page doesn't have the shop UI.
   const grid = document.getElementById("productGrid");
   const stats = document.getElementById("stats");
-  const searchInput = document.getElementById("searchInput");
-  if (!grid || !stats || !searchInput) return;
+  const categoryFilter = document.getElementById("categoryFilter");
+  if (!grid || !stats || !categoryFilter) return;
 
-  // De-dup duplicates like "(1)/(2)" by name+price, keeping the first file listed.
-  searchInput?.addEventListener("input", () => renderProducts(products, searchInput.value));
+  categoryFilter.addEventListener("change", () => renderProducts(products, categoryFilter.value));
 
   renderProducts(products, "");
 }
