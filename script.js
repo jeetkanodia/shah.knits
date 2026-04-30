@@ -97,9 +97,9 @@ function uniqueBy(items, keyFn) {
 
 function productCategoryHint(name) {
   const s = (name || "").toLowerCase();
-  if (s.includes("clip") || s.includes("claw") || s.includes("blush")) return "Clip";
+  if (s.includes("clip") || s.includes("claw") || s.includes("blush") ) return "Clip";
   if (s.includes("keychain") || s.includes("charm")) return "Keychain";
-  if (s.includes("bouquet") || s.includes("rose"))
+  if (s.includes("bouquet") || s.includes("rose") || s.includes("bloom"))
     return "Bouquet";
   return "Others";
 }
