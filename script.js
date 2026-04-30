@@ -97,13 +97,11 @@ function uniqueBy(items, keyFn) {
 
 function productCategoryHint(name) {
   const s = (name || "").toLowerCase();
-  if (s.includes("clip") || s.includes("claw") || s.includes("blush")) return "Clip";
+  if (s.includes("clip") || s.includes("claw") || s.includes("blush") || s.includes("bloom")) return "Clip";
   if (s.includes("keychain") || s.includes("charm")) return "Keychain";
-  if (s.includes("pouch") || s.includes("airpods")) return "Pouch";
-  if (s.includes("bouquet") || s.includes("gajra") || s.includes("pot") || s.includes("rose") || s.includes("lily") || s.includes("bloom")  )
-    return "Flowers";
-  if (s.includes("bag")) return "Bag";
-  return "Handmade";
+  if (s.includes("bouquet") || s.includes("rose"))
+    return "Bouquet";
+  return "Others";
 }
 
 function el(tag, attrs = {}, children = []) {
